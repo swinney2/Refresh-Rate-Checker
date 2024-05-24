@@ -147,7 +147,7 @@ class RefreshRateMonitor:
     def check_alerts(self):
         print("Checking alerts...")
         for device_name, rate in self.refresh_rates.items():
-            if rate < self.preferences.get(device_name, 60):  # Check against individual preferences
+            if rate != self.preferences.get(device_name, 60):  # Check against individual preferences
                 self.show_alert(device_name, rate)
 
     def show_alert(self, device_name, rate):
